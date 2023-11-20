@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Calculator Number Systems</title>
+    <link rel="stylesheet" type="text/css" href="2.css">
+</head>
+<div class="menu">
+    <a href="./index.html">Simple Calculator</a>
+    <a href="./2.html">Calculator Number Systems</a>
+    <a href="./1.html">Conversion</a>
+</div>
+
+<body>
+
+    <form name="calc" class="wrapper">
+
+        <table class="main" name="table">
+            <tr class="display">
+
+                <td colspan="5"><input type="text" name="input" id="input"> <select name="ComBoBox" class="ComBoBox" id="CBB">
+            <option value="10">10</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="2">2</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+          </select></td>
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" name="btnNumber" type="button" value="1" OnClick="calc.input.value += '1'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="2" OnClick="calc.input.value += '2'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="3" OnClick="calc.input.value += '3'"></td>
+                <td><input class="btn" type="button" value="+" OnClick="calc.input.value += '+'"></td>
+
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" name="btnNumber" type="button" value="4" OnClick="calc.input.value += '4'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="5" OnClick="calc.input.value += '5'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="6" OnClick="calc.input.value += '6'"></td>
+                <td><input class="btn" type="button" value="-" OnClick="calc.input.value += '-'"></td>
+
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" name="btnNumber" type="button" value="7" OnClick="calc.input.value += '7'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="8" OnClick="calc.input.value += '8'"></td>
+                <td><input class="btn" name="btnNumber" type="button" value="9" OnClick="calc.input.value += '9'"></td>
+                <td><input class="btn" type="button" value="x" OnClick="calc.input.value += '*'"></td>
+
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="A" OnClick="calc.input.value += 'A'"></td>
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="B" OnClick="calc.input.value += 'B'"></td>
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="C" OnClick="calc.input.value += 'C'"></td>
+                <td><input class="btn" type="button" value="%" onclick="calc.input.value+='%'"></td>
+
+
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="D" OnClick="calc.input.value += 'D'"></td>
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="E" OnClick="calc.input.value += 'E'"></td>
+                <td><input class="btn" name="btnNumber" type="button" disabled=true value="F" OnClick="calc.input.value += 'F'"></td>
+                <td><input class="btn" type="button" value="\" onclick="calc.input.value+='/'"></td>
+
+            </tr>
+            <tr class="buttons">
+                <td><input class="btn" type="button" value="c" OnClick="calc.input.value = ''"></td>
+                <td><input class="btn" id="zero" type="button" value="0" OnClick="calc.input.value += '0'"></td>
+                <td><input class="btn" type="button" value="&larr;" onclick="calc.input.value = calc.input.value.slice(0,-1)"></td>
+
+                <td><input name="1" id="equal" type="button" value="="></td>
+
+
+            </tr>
+            <table>
+    </form>
+    <script src="2.js"></script>
+</body>
+
+</html>

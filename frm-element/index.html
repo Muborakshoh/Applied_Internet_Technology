@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <title>My page with Form Elements</title>
+</head>
+<body>
+    <form action="" name="search">
+        Login:  <input type="text" name="lgnfld" id="" size="20" maxlength="50"><br><br>
+        Password:  <input type="password" name="pswfld" id="" size="20" maxlength="50"><br><br>
+        <textarea name="fld" cols="30" rows="10">
+
+        </textarea><br><br>
+        <input type="button" value="Run" name="btnRun"><br><br>
+        <!-- <textarea name="txtarfld" id="" cols="30" rows="10">
+            1 - DELL
+            2 - HP
+            3 - ACER
+            4 - TOSHIBA
+            5 - ASUS
+        </textarea><br>
+        <select name="cmbbox" id="">
+            <option value="">DELL</option>
+            <option value="">HP</option>
+            <option value="">ASUS</option>
+            <option value="">TOSHIBA</option>
+        </select><br>
+        <br>
+        <select single name="sList" id="" size="10">
+            <option value="">DELL</option>
+            <option value="">HP</option>
+            <option value="">ASUS</option>
+            <option value="">TOSHIBA</option>
+        </select><br>
+        <br>
+        <select multiple name="mList" id="">
+            <option value="">DELL</option>
+            <option value="">HP</option>
+            <option value="">ASUS</option>
+            <option value="">TOSHIBA</option>
+        </select><br><br>
+        <input type="checkbox" name="chbox" id="">Selected<br><br>
+        <input type="radio" name="r" value="1">RadioButton1<br><br>
+        <input type="radio" name="r" value="2">RadioButton2<br><br>
+        <input type="submit" value="Send"><br><br>
+        <input type="reset" value="Reset"><br><br>
+        <input type="image" src="" alt="Image"><br><br>
+        <input type="hidden" name="">Hidden<br><br>
+        <input type="button" value="Run"><br><br>
+        <input type="button" value="Run"><br><br>
+    </form> -->
+    <div id="printBox">
+        <script>
+            function pintForm(e) {
+                var fbox = document.search.fld;
+                var tval = fbox.value;
+                var printBox = document.getElementById("printBox");
+                var pElem = document.createElement("p");
+                pElem.textContent =  tval;
+                printBox.appendChild(pElem);
+                fbox.value = "";
+            }
+            var printBtn = document.search.btnRun;
+            printBtn.addEventListener("click",pintForm);
+        </script>
+    </div>
+</body>
+</html>

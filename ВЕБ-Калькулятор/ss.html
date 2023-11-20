@@ -1,0 +1,592 @@
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Калькулятор</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Rubik:500,700,900');
+/*@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');*/
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+*::selection{
+	color: white;
+	background: #ff5252; 
+}
+
+html, body{
+	background: #6ed8f3;
+}
+/*
+header{
+	/*background-image: linear-gradient(to bottom, black 0%, transparent 35%), url('https://ak7.picdn.net/shutterstock/videos/7104067/thumb/1.jpg');
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center bottom;
+	background-attachment: fixed;
+	flex-direction: column;    
+	color: white;
+	font-family: 'Rubik';
+	font-weight: 900;
+	font-size: 1.5em;
+}
+*/
+
+.first{
+	margin-top: 2vmin; 
+}
+
+.first h1{
+	color: black;
+	font-family: 'Rubik';
+	font-weight: 90;
+	font-size: 20px;
+	text-align: center;
+}
+
+.first input{
+ 	padding: 1em;
+ 	border: none;
+	border-radius: 10px;
+	border: 1px solid lightgray;
+	position: relative;
+	margin-top: 1px;
+	font-family: 'Roboto';
+	font-weight: 400;
+	cursor: pointer;
+}
+
+.first input:focus{
+	transition: all .3s ease-in-out;
+	border: none;
+	border: 1px solid black;
+	outline: none!important;
+}
+
+.second{
+	margin-top: 1px;
+}
+
+.second h1{
+	color: black;
+	font-family: 'Rubik';
+	font-weight: 90;
+	font-size: 20px;
+	text-align: center;
+}
+
+.second button{
+	margin-top: 7vmin;
+	color: #3174e0;
+	border-radius: 30px;
+	border: 1px solid #3174e0;
+	display: inline-block;
+	font-family: 'Roboto';
+	font-weight: 400;
+	text-align: center;
+	padding: 10px;
+	background-color: white;
+	margin-right: 1px;
+	cursor: pointer;
+  outline: none!important;
+}
+
+.second button:hover{
+	transition: all .3s ease-in-out;
+	background-color: #3174e0;
+	color: white;
+}
+
+.second button:focus{
+	outline: none!important;
+	background-color: #3174e0;
+	color: white;
+}
+
+.dr1 input{
+ 	padding: 0.7em;
+ 	border: none;
+	border-bottom: 1px solid lightgray; 
+	position: relative;
+	margin-top: 1px;
+	font-family: 'Roboto';
+	font-weight: 300;
+	cursor: pointer;
+}
+
+.dr1 input:focus{
+	transition: all .3s ease-in-out;
+	border: none;
+	border-bottom: 1px solid black; 
+	outline: none!important;
+}
+
+
+.tri{ 
+	margin-top: 1px;
+}
+
+.tri h1{
+	color: black;
+	font-family: 'Rubik';
+	font-weight: 90;
+	font-size: 20px;
+	text-align: center;
+}
+
+.tri button{
+	margin-top: 7vmin;
+	color: #f0f2f7;
+	border-radius: 30px;
+	border: 1px solid #00050c;
+	display: inline-block;
+	font-family: 'Roboto';
+	font-weight: 400;
+	text-align: center;
+	padding: 10px;
+	background-color: white;
+	margin-right: 2vmin;
+	cursor: pointer;
+}
+
+.tri button:hover{
+	transition: all .3s ease-in-out;
+	background-color: #3174e0;
+	color: white;
+}
+
+.tri button:focus{
+	outline: none!important;
+	background-color: #3174e0;
+	color: white;
+}
+
+.perevesti{
+	margin-top: 2vmin;
+}
+
+button{
+	padding-top: 1.5vmin;
+	padding-bottom: 1.5vmin;
+	text-align: center;
+	padding-left: 7vmin;
+	padding-right: 7vmin;
+	background-color: #3174e0;
+	color: white;
+	font-family: 'Roboto';
+	font-weight: 300;
+	border-radius: 7px;
+	border: none;
+	font-size: 1.3em;
+	cursor: pointer;
+}
+
+button:hover{
+	transition: all .3s ease-in-out;
+	background-color: #263e66;
+}
+
+button:focus{
+	outline: none!important;
+}
+  header h1{
+    font-size: 1.4em;
+} 
+  .heart-fot{
+    margin-top: 15px;
+  }
+}
+  
+.heart-fot{
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+.math{
+	margin-top: 1vmin;
+	align-items: center;
+	justify-content: center;
+}
+
+.math h1{
+	font-family: 'Rubik';
+	font-weight: 90;
+}
+
+.math .degree{
+	display: flex;
+	margin-top: 1vmin;
+	justify-content: center;
+	align-items: center;
+}
+
+.math .numbers{
+	display: flex;
+	margin-top: 1vmin;
+	justify-content: center;
+	align-items: center;
+}
+
+.math .degree input{
+	margin: 10px;
+	padding: 5px;
+	border-radius: 10px;
+	border: 1px solid lightgrey;
+	width: 115px;
+	outline: none!important;
+	font-family: 'Roboto';
+	font-weight: 300;
+}
+
+.math .numbers input{
+	outline: none!important;
+	padding: 8px;
+	border-bottom: 1.3px solid lightgrey;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	text-align: center;
+	font-family: 'Roboto';
+	font-weight: 300;
+	margin: 10px
+}
+
+
+.math .numbers input:focus{
+	transition: all .3s ease-in-out;
+	border: none;
+	border-bottom: 1px solid black; 
+	outline: none!important;
+}
+
+.math .degree input:focus{
+	transition: all .3s ease-in-out;
+	border: none;
+	border: 1px solid black;
+	outline: none!important;
+}
+
+
+.math .bttn{
+	margin-top: 30px;
+}
+
+@media only screen and (max-width: 420px) {
+	.math .degree{
+		justify-content: center;
+		align-items: center;
+		display: inline-block;
+	}
+	
+	.math .numbers{
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	.math{
+		display: inline-block;
+	}
+}
+    </style>
+</head>
+<body>	
+	<header>
+		<h1>Калькулятор систем счисления</h1>
+	</header>
+	<div class="first">
+		<h1>Введите число, которое хотите перевести</h1>
+		<center>
+			<input type="text" id="num" placeholder = "Ваше число..." title="Число, которое вы хотите перевести">
+		</center>
+	</div>
+	<div class="second">
+		<h1>Система счисления Вашего числа</h1>
+</div>
+<div class="dr1">
+	<center>
+		<input id="numberSystem" type="number" name="" placeholder="Система счисления" title="Система счисления Вашего числа">
+	</center>
+</div>
+<div class="tri">
+	<h1>Перевести в...</h1>
+</div>
+<div class="dr1">
+	<center>
+		<input type="number" name="secondSys" placeholder="Систему счисления" title="Перевести в Вашу систему счисления" id="numberSystem2">
+	</center>
+</div>
+<div class="perevesti">
+	<center>
+		<button id="result" onclick="resultNumber()" nowrap>→</button>
+	</center>
+</div>
+<!-- Plus -->
+<div class="math">
+	<center>
+		<h1>Сложение</h1>
+		<div class="degree">
+			<input type="number" placeholder="Степень 1 числа" id="plusDegree1">
+			<input type="number" placeholder="Степень 2 числа" id="plusDegree2">
+			<input type="number" placeholder="Степень ответа" id="plusDegree3">
+		</div>
+		<div class="numbers">
+			<input type="text" placeholder="Число 1" id="plusNumber1">
+			<p>+</p>
+			<input type="text" placeholder="Число 2" id="plusNumber2">
+		</div>
+		<button class="bttn" onclick="additionNumbers()">=</button>
+	</center>
+</div>
+<!-- Minus -->
+<div class="math">
+	<center>
+		<h1>Вычитание</h1>
+		<div class="degree">
+			<input type="number" placeholder="Степень 1 числа" id="minusDegree1">
+			<input type="number" placeholder="Степень 2 числа" id="minusDegree2">
+			<input type="number" placeholder="Степень ответа" id="minusDegree3">
+		</div>
+		<div class="numbers">
+			<input type="text" placeholder="Число 1" id="minusNumber1">
+			<p>-</p>
+			<input type="text" placeholder="Число 2" id="minusNumber2">
+		</div>
+		<button class="bttn" onclick="minusNumbers()">=</button>
+	</center>
+</div>
+<!-- Multiply -->
+<div class="math">
+	<center>
+		<h1>Умножение</h1>
+		<div class="degree">
+			<input type="number" placeholder="Степень 1 числа" id="multiplyDegree1">
+			<input type="number" placeholder="Степень 2 числа" id="multiplyDegree2">
+			<input type="number" placeholder="Степень ответа" id="multiplyDegree3">
+		</div>
+		<div class="numbers">
+			<input type="text" placeholder="Число 1" id="multiplyNumber1">
+			<p>*</p>
+			<input type="text" placeholder="Число 2" id="multiplyNumber2">
+		</div>
+		<button class="bttn" onclick="multiplyNumbers()">=</button>
+	</center>
+</div>
+<!-- Division -->
+<div class="math">
+	<center>
+		<h1>Деление</h1>
+		<div class="degree">
+			<input type="number" placeholder="Степень 1 числа" id="divisionDegree1">
+			<input type="number" placeholder="Степень 2 числа" id="divisionDegree2">
+			<input type="number" placeholder="Степень ответа" id="divisionDegree3">
+		</div>
+		<div class="numbers">
+			<input type="text" placeholder="Число 1" id="divisionNumber1">
+			<p>/</p>
+			<input type="text" placeholder="Число 2" id="divisionNumber2">
+		</div>
+		<button class="bttn" onclick="divisionNumbers()">=</button>
+	</center>
+</div>
+<script>
+    var userNumber;
+var numberSystem, numberSystem2;
+var res, result;
+var footerColor;
+var time, hour, minute, second;
+var colorToFooter;
+
+var plusDegree1, plusDegree2, plusDegree3;
+var plusNumber1, plusNumber2;
+var plusRes1, plusRes2, plusRes1Res2,plusResult;
+
+var minusDegree1, minusDegree2, minusDegree3;
+var minusNumber1, minusNumber2;
+var minusRes1, minusRes2, minusRes1Res2,minusResult;
+
+var multiplyDegree1, multiplyDegree2, multiplyDegree3;
+var multiplyNumber1, multiplyNumber2;
+var multiplyRes1, multiplyRes2, multiplyRes1Res2,multiplyResult;
+
+var divisionDegree1, divisionDegree2, divisionDegree3;
+var divisionNumber1, divisionNumber2;
+var divisionRes1, divisionRes2, divisionRes1Res2,divisionResult;
+
+footerColor = document.getElementById('footerColor');
+
+
+
+function resultNumber(){
+	userNumber = document.getElementById('num').value;
+	numberSystem = document.getElementById('numberSystem').value;
+	numberSystem2 = document.getElementById('numberSystem2').value;
+	
+	numberSystem = +numberSystem;
+	numberSystem2 = +numberSystem2;
+	
+	if ((numberSystem <= 1) || (numberSystem >= 37) || (numberSystem2 <= 1) || (numberSystem2 >= 37)){
+		swal("Ошибка!", "Неправильная система счисления!", "error");
+	} else {
+		res = parseInt(userNumber, numberSystem);
+
+		if (isNaN(res)){
+			swal("Ошибка!", "Проверьте правильность введёного числа системы счисления!", "error");
+		} else {
+			result = res.toString(numberSystem2);
+			swal("Результат: ", result, "success");
+	}
+	}
+}
+
+
+function additionNumbers(){
+	plusDegree1 = document.getElementById('plusDegree1').value;
+	plusDegree2 = document.getElementById('plusDegree2').value;
+	plusDegree3 = document.getElementById('plusDegree3').value;
+
+	plusNumber1 = document.getElementById('plusNumber1').value;
+	plusNumber2 = document.getElementById('plusNumber2').value;
+
+	plusDegree1 = +plusDegree1;
+	plusDegree2 = +plusDegree2;
+	plusDegree3 = +plusDegree3;
+
+	if ((plusDegree1 <= 1) || (plusDegree1 >= 37) || (plusDegree2 <= 1) || (plusDegree2 >= 37) || (plusDegree3 <= 1) || (plusDegree3 >= 37)){
+		swal("Ошибка!", "Неправильная система счисления!", "error");
+	} else {
+		plusRes1 = parseInt(plusNumber1, plusDegree1);
+		plusRes2 = parseInt(plusNumber2, plusDegree2);
+
+		if (isNaN(plusRes1) || isNaN(plusRes2)){
+			swal("Ошибка!", "Проверьте правильность введёного числа!", "error");
+		} else {
+			plusRes1Res2 = plusRes1 + plusRes2;
+			plusResult = plusRes1Res2.toString(plusDegree3);
+			swal("Результат: ", plusResult, "success");
+		}}
+	
+}
+
+
+function minusNumbers(){
+	minusDegree1 = document.getElementById('minusDegree1').value;
+	minusDegree2 = document.getElementById('minusDegree2').value;
+	minusDegree3 = document.getElementById('minusDegree3').value;
+
+	minusNumber1 = document.getElementById('minusNumber1').value;
+	minusNumber2 = document.getElementById('minusNumber2').value;
+
+	minusDegree1 = +minusDegree1;
+	minusDegree2 = +minusDegree2;
+	minusDegree3 = +minusDegree3;
+
+	if ((minusDegree1 <= 1) || (minusDegree1 >= 37) || (minusDegree2 <= 1) || (minusDegree2 >= 37) || (minusDegree3 <= 1) || (minusDegree3 >= 37)){
+		swal("Ошибка!", "Неправильная система счисления!", "error");
+	} else {
+		minusRes1 = parseInt(minusNumber1, minusDegree1);
+		minusRes2 = parseInt(minusNumber2, minusDegree2);
+
+		if (isNaN(minusRes1) || isNaN(minusRes2)){
+			swal("Ошибка!", "Проверьте правильность введёного числа!", "error");
+		} else {
+			minusRes1Res2 = minusRes1 - minusRes2;
+			minusResult = minusRes1Res2.toString(minusDegree3);
+			swal("Результат: ", minusResult, "success");
+		}}
+	
+}
+
+
+function multiplyNumbers(){
+	multiplyDegree1 = document.getElementById('multiplyDegree1').value;
+	multiplyDegree2 = document.getElementById('multiplyDegree2').value;
+	multiplyDegree3 = document.getElementById('multiplyDegree3').value;
+
+	multiplyNumber1 = document.getElementById('multiplyNumber1').value;
+	multiplyNumber2 = document.getElementById('multiplyNumber2').value;
+
+	multiplyDegree1 = +multiplyDegree1;
+	multiplyDegree2 = +multiplyDegree2;
+	multiplyDegree3 = +multiplyDegree3;
+
+	if ((multiplyDegree1 <= 1) || (multiplyDegree1 >= 37) || (multiplyDegree2 <= 1) || (multiplyDegree2 >= 37) || (multiplyDegree3 <= 1) || (multiplyDegree3 >= 37)){
+		swal("Ошибка!", "Неправильная система счисления!", "error");
+	} else {
+		multiplyRes1 = parseInt(multiplyNumber1, multiplyDegree1);
+		multiplyRes2 = parseInt(multiplyNumber2, multiplyDegree2);
+
+		if (isNaN(multiplyRes1) || isNaN(multiplyRes2)){
+			swal("Ошибка!", "Проверьте правильность введёного числа!", "error");
+		} else {
+			multiplyRes1Res2 = multiplyRes1 * multiplyRes2;
+			multiplyResult = multiplyRes1Res2.toString(multiplyDegree3);
+			swal("Результат: ", multiplyResult, "success");
+		}}
+}
+
+
+function divisionNumbers(){
+	divisionDegree1 = document.getElementById('divisionDegree1').value;
+	divisionDegree2 = document.getElementById('divisionDegree2').value;
+	divisionDegree3 = document.getElementById('divisionDegree3').value;
+
+	divisionNumber1 = document.getElementById('divisionNumber1').value;
+	divisionNumber2 = document.getElementById('divisionNumber2').value;
+
+	divisionDegree1 = +divisionDegree1;
+	divisionDegree2 = +divisionDegree2;
+	divisionDegree3 = +divisionDegree3;
+
+	if ((divisionDegree1 <= 1) || (divisionDegree1 >= 37) || (divisionDegree2 <= 1) || (divisionDegree2 >= 37) || (divisionDegree3 <= 1) || (divisionDegree3 >= 37)){
+		swal("Ошибка!", "Неправильная система счисления!", "error");
+	} else {
+		divisionRes1 = parseInt(divisionNumber1, divisionDegree1);
+		divisionRes2 = parseInt(divisionNumber2, divisionDegree2);
+
+		if (isNaN(divisionRes1) || isNaN(divisionRes2)){
+			swal("Ошибка!", "Проверьте правильность введёного числа!", "error");
+		} else {
+			divisionRes1Res2 = divisionRes1 * divisionRes2;
+			divisionResult = divisionRes1Res2.toString(divisionDegree3);
+			swal("Результат: ", divisionResult, "success");
+		}}
+}
+
+function timeColor(){
+	time = new Date();
+	hour = time.getHours().toString();
+	minute = time.getMinutes().toString();
+	second = time.getSeconds().toString();
+
+	if (hour.length < 2){
+		hour = '0' + hour;
+	} 
+	if (minute.lenght < 2){
+		minute = '0' + minute;
+	}
+	if (second.length < 2){
+		second = '0' + second;
+	}
+
+	colorToFooter = '#' + hour + minute + second;
+
+	footerColor.style.backgroundColor = colorToFooter;
+}
+
+setInterval(timeColor, 1000);
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>

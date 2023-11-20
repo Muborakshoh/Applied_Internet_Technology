@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Календарь событий с прокуратурой на следующий месяц</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th {
+        background-color: #0077be;
+        color: #ffffff;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        padding: 10px;
+      }
+
+      td {
+        border: 1px solid #cccccc;
+        padding: 10px;
+        text-align: center;
+        vertical-align: top;
+        height: 100px;
+      }
+
+      td:hover {
+        background-color: #f2f2f2;
+      }
+
+      .prev-next-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .add-event-form {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+      }
+
+      .add-event-form label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .add-event-form input[type="text"] {
+        margin-bottom: 10px;
+        padding: 5px;
+      }
+
+      .add-event-form button {
+        padding: 5px;
+      }
+
+      .error-message {
+        color: red;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar-container">
+      <div class="prev-next-buttons">
+        <button id="prev-month">Предыдущий месяц</button>
+        <button id="next-month">Следующий месяц</button>
+      </div>
+      <table id="calendar"></table>
+      <div class="add-event-form">
+        <h3>Добавить событие</h3>
+        <label for="event-date">Дата (дд.мм.гггг):</label>
+        <input type="text" id="event-date" placeholder="дд.мм.гггг">
+        <label for="event-time">Время:</label>
+        <input type="text" id="event-time" placeholder="например, 15:30">
+        <label for="event-title">Заголовок:</label>
+        <input type="text" id="event-title" placeholder="например, Встреча в прокуратуре">
+        <button id="add-event">Добавить</button>
+        <div class="error-message" id="error-message"></div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>

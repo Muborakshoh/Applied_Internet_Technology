@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+        <style>
+            main {
+                width: 800px;
+                height: 800px;
+                margin: 0 auto;
+            }
+            h1 {
+                text-align: center;
+            }
+            form {
+                width: 450px;
+                height: 150px;
+                border: 2px solid darkgray;
+                margin-left: 245px;
+                background-color:#696969;
+            }
+            div {
+                width: 320px;
+                margin-left: 10px;
+                margin-top: 2px;
+            }
+            #result {
+                background-color: whitesmoke;
+            }
+            input {
+                margin-top: 2px;
+                background-color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Calculator</h1>
+            <form name="calc" action="">
+                <div>
+                    <input type="text" name="" id="result" size="50" value=" ";>
+                </div>
+                <div>
+                    <input name="one" type="button" value="1" onclick="NumPressed(1)">
+                    <input name="two" type="button" value="2" onclick="NumPressed(2)">
+                    <input name="three" type="button" value="3" onclick="NumPressed(3)">
+                    <input name="division" type="button" value="/" onclick="Operation('/')">
+                    <input name="percent" type="button" value="%" onclick="Percent()">
+                    <input name="sqrt" type="button" value="√" onclick="Sqrt()">
+                    <input name="ln" type="button" value="ln" onclick="Ln()">
+                    <input name="Hex" type="button" value="Hex" onclick="H()">
+                </div>
+                <div>
+                    <input name="four" type="button" value="4" onclick="NumPressed(4)">
+                    <input name="five" type="button" value="5" onclick="NumPressed(5)">
+                    <input name="six" type="button" value="6" onclick="NumPressed(6)">
+                    <input name="multiplication" type="button" value="*" onclick="Operation('*')">
+                    <input name="sin" type="button" value="sin" onclick="Sin()">
+                    <input name="exp" type="button" value="e" onclick="Exp()">
+                    <input name="decimal" type="button" value="." onclick="Decimal()">
+                    <input name="Dec" type="button" value="Dec" onclick="D()">
+                </div>
+                <div>
+                    <input name="seven" type="button" value="7" onclick="NumPressed(7)">
+                    <input name="eight" type="button" value="8" onclick="NumPressed(8)">
+                    <input name="nine" type="button" value="9" onclick="NumPressed(9)">
+                    <input name="divide" type="button" value="-" onclick="Operation('-')">
+                    <input name="cos" type="button" value="cos" onclick="Cos()">
+                    <input name="negative" type="button" value="+/-" onclick="Neg()">
+                    <input name="powerfortwo" type="button" value="x²" onclick="PowerForTwo()">
+                    <input name="oct" type="button" value="Oct" onclick="O()">
+                </div>
+                <div>
+                    <input name="zero" type="button" value="0" onclick="NumPressed(0)">
+                    <input name="clear" type="button" value="CE" onclick="Clear(0)">
+                    <input name="addition" type="button" value="+" onclick="Operation(9)">
+                    <input name="equal" type="button" value="=" onclick="Operation('=')">
+                    <input name="tg" type="button" value="tg" onclick="Tg()">
+                    <input name="one_division" type="button" value="1/x" onclick="OneDivision()">
+                    <input name="powerforthree" type="button" value="x³" onclick="PowerForThree()">
+                    <input name="Bin" type="button" value="Bin" onclick="B()">
+                </div>
+            </form>
+        </main>
+        <script>
+            var Calc = document.calc;
+            var NewNum = false;
+            var Currents = 0;
+            var PendingOp = "";
+
+            function NumPressed(Num)
+            {
+                if (NewNum) {
+                    Calc.result.value = Num;
+                    NewNum = false;
+                }
+                else {
+                    if(Calc.result.value == "0")
+                       Calc.result.value = Num;
+                    else
+                       Calc.result.value += Num;
+                }
+            }
+            function Clear() {
+                result.value = '0';
+            }
+            function Operation(Op) {
+                var result = Calc.result.value;
+                if (NewNum && PendingOp != "="){
+                    Calc.result.value = Currents;
+                }
+                else {
+                    NewNum = true;
+                    if('+' == PendingOp)
+                      Currents += parseFloat(result);
+                    else if('-' == PendingOp)
+                      Currents -= parseFloat(result);
+                    else if ('/' == PendingOp)
+                      Currents /= parseFloat(result);
+                    else if ('*' == PendingOp)
+                      Currents *= parseFloat(result);
+                    else
+                      Currents = parseFloat(result);
+                    Calc.result.value = Currents;
+                    PendingOp = Op;
+                }
+            }
+            function Neg(){
+                 Calc.result.value=parseFloat(Calc.result.value)* (-1);
+            }
+            function Percent(){
+                Calc.result.value = (parseFloat(Calc.result.value)/100);// *parseFloat(Currents);
+            }
+            function OneDivision(){
+                Calc.result.value = 1/(parseFloat(Calc.result.value));
+            }
+            function Decimal(){
+              var curResult = Calc.result.value;
+              if (NewNum){
+                 curResult = "0.";
+                 NewNum = false;
+                }
+              else{
+                  if (curResult.indexOf(".") == -1)
+                       curResult += ".";
+                    }
+                    Calc.result.value = curResult;
+                    }
+            function Sqrt(){
+                   Calc.result.value=Math.sqrt(Calc.result.value);
+}
+//синус
+function Sin(){
+Calc.result.value=Math.sin(Calc.result.value);
+}
+//косинус
+function Cos(){
+Calc.result.value=Math.cos(Calc.result.value);
+}
+//тангенс
+function Tg(){
+Calc.result.value=Math.tan(Calc.result.value);
+}
+//нахождение логарифма числа
+function Ln(){
+Calc.result.value=Math.log(Calc.result.value);
+}
+//нахождение экспоненты
+function Exp(){
+Calc.result.value=Math.exp(Calc.result.value);
+}
+function PowerForTwo(){
+Calc.result.value=Math.pow(Calc.result.value,2);}
+
+function PowerForThree(){
+Calc.result.value=Math.pow(Calc.result.value,3);
+}
+function H(){
+Calc.result.value = "0x"+(parseInt(Calc.result.value)).toString(16);
+}
+
+function B(){
+Calc.result.value = (parseInt(Calc.result.value)).toString(2);
+}
+function O(){
+Calc.result.value = '0'+(parseInt(Calc.result.value)).toString(8);
+}
+function D(){
+var radix = prompt('Введите основание системы счисления 2,8 или 16');
+if (radix == 2 ){
+Calc.result.value = (parseInt(Calc.result.value, 2));
+}
+else if (radix == 8){
+Calc.result.value = (parseInt(Calc.result.value, 8));
+}
+else if (radix == 16){
+Calc.result.value = (parseInt(Calc.result.value, 16));
+}
+}
+        </script>
+    </body>
+</html>
